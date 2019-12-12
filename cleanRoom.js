@@ -13,6 +13,8 @@ function getRoombaInstructions(){
 
         return data 
    })
+
+   if(!inputFile) throw new Error('input.txt was found, but there appears to be nothing in it.')
    
    return inputFile
 }
@@ -67,7 +69,8 @@ function addDirtTiles(dirtyTiles){
 
 function mapOverRoombaMovements(roombaPath, roombaCoords, roomSize){
     //map over directions, accumulate cleaned tiles
-    // console.log(roombaCoords, roomSize)
+    console.log(roombaCoords, roomSize)
+    console.log(roomGrid)
    roombaPath.split('').map(dir => 
     {
         switch(dir){
@@ -82,7 +85,7 @@ function mapOverRoombaMovements(roombaPath, roombaCoords, roomSize){
                     roomGrid[roombaCoords.posY-1][roombaCoords.posX] = 'CLEAN'
                     roomGrid[roombaCoords.posY][roombaCoords.posX] = 'ROOMBA'
 
-                    // console.log('N',roombaCoords,'\n', roomGrid)
+                    console.log('N',roombaCoords,'\n', roomGrid)
                 }
 
                 break;
@@ -98,7 +101,7 @@ function mapOverRoombaMovements(roombaPath, roombaCoords, roomSize){
                     roomGrid[roombaCoords.posY][roombaCoords.posX] = 'ROOMBA'
                     roomGrid[roombaCoords.posY][roombaCoords.posX+1] = 'CLEAN'
 
-                    // console.log('W',roombaCoords, '\n',roomGrid)
+                    console.log('W',roombaCoords, '\n',roomGrid)
                 }
                 break;
             case 'S':
@@ -113,7 +116,7 @@ function mapOverRoombaMovements(roombaPath, roombaCoords, roomSize){
                     roomGrid[roombaCoords.posY][roombaCoords.posX] = 'ROOMBA'
                     roomGrid[roombaCoords.posY+1][roombaCoords.posX] = 'CLEAN'
 
-                    // console.log('S',roombaCoords,'\n', roomGrid)
+                    console.log('S',roombaCoords,'\n', roomGrid)
                 }
                 break;
             case 'E':
@@ -128,7 +131,7 @@ function mapOverRoombaMovements(roombaPath, roombaCoords, roomSize){
                     roomGrid[roombaCoords.posY][roombaCoords.posX] = 'ROOMBA'
                     roomGrid[roombaCoords.posY][roombaCoords.posX-1] = 'CLEAN'
 
-                    // console.log('E',roombaCoords, '\n',roomGrid)
+                    console.log('E',roombaCoords, '\n',roomGrid)
                 }
                 break;
             }
