@@ -109,7 +109,7 @@ function addRoombaPosition(roomba, roomDimObj){
 function addDirtTiles(dirtyTiles,roomDimObj){
 
     if(dirtyTiles.length === 0){
-        console.log("Why would you do this? The roomba has a singular purpose, and yet you've decided to play God and laugh as he drives around aimlessly with false hope that it may complete it's task of hoovering up dirt.")
+        console.log("Why would you do this? The roomba has a singular purpose, and yet you've decided to play God and laugh as it drives around aimlessly with false hope that it may complete it's task of hoovering up dirt.")
     }else{
 
         for(let i = 0; i< dirtyTiles.length; i ++){
