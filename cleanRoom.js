@@ -108,12 +108,18 @@ function addRoombaPosition(roomba, roomDimObj){
 
 function addDirtTiles(dirtyTiles,roomDimObj){
 
-    for(let i = 0; i< dirtyTiles.length; i ++){
-        let dirtPosX = parseInt(dirtyTiles[i].split(' ')[0])
-        let dirtPosY = (roomDimObj.upperBoundY-1) - parseInt(dirtyTiles[i].split(' ')[1])
+    if(dirtyTiles.length === 0){
+        console.log("Why would you do this? The roomba has a singular purpose, and yet you've decided to play God and laugh as he drives around aimlessly with false hope that it may complete it's task of hoovering up dirt.")
+    }else{
 
-        roomGrid[dirtPosY][dirtPosX] = 'DIRT'
+        for(let i = 0; i< dirtyTiles.length; i ++){
+            let dirtPosX = parseInt(dirtyTiles[i].split(' ')[0])
+            let dirtPosY = (roomDimObj.upperBoundY-1) - parseInt(dirtyTiles[i].split(' ')[1])
+    
+            roomGrid[dirtPosY][dirtPosX] = 'DIRT'
+        }
     }
+
 }
 
 function mapOverRoombaMovements(roombaPath, roombaCoords, roomSize){
